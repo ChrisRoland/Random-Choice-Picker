@@ -1,5 +1,6 @@
 const tagsEl = document.getElementById("tags");
 const textarea = document.getElementById("textarea");
+const pickBtn = document.getElementById("pick-btn");
 
 textarea.focus();
 
@@ -29,6 +30,16 @@ function createTags(input) {
     tagsEl.appendChild(tagEl);
   });
 }
+
+pickBtn.addEventListener("click", () => {
+  const textareaValue = textarea.value;
+  if (textareaValue) {
+    createTags(textareaValue);
+    textarea.value = "";
+    randomSelect();
+  }
+}
+);
 
 function randomSelect() {
     const times = 30;
